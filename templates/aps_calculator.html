@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>APS Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="/search">Search</a>
+        <a href="/aps-calculator">APS Calculator</a>
+        <a href="/compare">Compare</a>
+        <a href="/materials">Materials</a>
+        <a href="/favorites">Favorites</a>
+        <a href="/apply-service">Apply For Me</a>
+    </nav>
+
+    <div class="container">
+
+    <h1>APS Calculator</h1>
+    {% include 'aps_disclaimer.html' %}
+    
+    <p>Enter your percentage for your best 6 subjects (excluding Life Orientation).</p>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        <input type="text" name="subject1" placeholder="Subject 1 %"><br>
+        <input type="text" name="subject2" placeholder="Subject 2 %"><br>
+        <input type="text" name="subject3" placeholder="Subject 3 %"><br>
+        <input type="text" name="subject4" placeholder="Subject 4 %"><br>
+        <input type="text" name="subject5" placeholder="Subject 5 %"><br>
+        <input type="text" name="subject6" placeholder="Subject 6 %"><br>
+        <button type="submit">Calculate APS</button>
+    </form>
+
+    {% if total_aps is not none %}
+    <h2>Your APS Score: {{ total_aps }}</h2>
+
+    <h3>Universities you qualify for:</h3>
+        {% if qualifying_universities %}
+            {% for uni in qualifying_universities %}
+                <div class="uni-card">
+                    <h4>{{ uni.name }}</h4>
+                    <p>APS required: {{ uni.aps }} | Deadline: {{ uni.deadline }}</p>
+                    <a href="{{ uni.prospectus_link }}" target="_blank">View Prospectus / Apply</a>
+                </div>
+            {% endfor %}
+       {% else %}
+            <p>No universities matched based on the minimum APS listed. Check specific course requirements directly.</p>
+       {% endif %}
+   {% endif %}
+
+    <a href="/">Back to Home</a>
+</div>    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matric Helper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="/search">Search</a>
+        <a href="/aps-calculator">APS Calculator</a>
+        <a href="/materials">Study Materials</a>
+        <a href="/compare">Compare Universities</a>
+        <a href="/favorites">Favorites</a>
+        <a href="/apply-service">Application Help Service</a>
+    </nav>
+
+    <div class="container">
+        <h1>Matric Helper</h1>
+        {% include 'aps_disclaimer.html' %}
+
+        {% for uni in universities %}
+        <div class="uni-card">
+            <h3>{{ uni.name }}</h3>
+            <p>APS required: {{ uni.aps }} | Deadline: {{ uni.deadline }}</p>
+            <a href="{{ uni.prospectus_link }}" target="_blank">View Prospectus / Apply</a><br>
+            <a href="/add-favorite/{{ uni.name }}">☆ Add to Favorites</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

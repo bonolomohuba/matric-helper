@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compare Universities</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="/search">Search</a>
+        <a href="/aps-calculator">APS Calculator</a>
+        <a href="/compare">Compare</a>
+        <a href="/materials">Materials</a>
+        <a href="/favorites">Favorites</a>
+        <a href="/apply-service">Apply For Me</a>
+    </nav>
+
+    <div class="container">
+        <h1>Compare Two Universities</h1>
+        {% include 'aps_disclaimer.html' %}
+
+        <form method="POST">
+            <select name="uni1">
+                {% for uni in universities %}
+                    <option value="{{ uni.name }}">{{ uni.name }}</option>
+                {% endfor %}
+            </select>
+
+            <select name="uni2">
+                {% for uni in universities %}
+                    <option value="{{ uni.name }}">{{ uni.name }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Compare</button>
+        </form>
+
+        
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        {% if uni1_data and uni2_data %}
+            <div class="uni-card">
+                <h3>{{ uni1_data.name }}</h3>
+                <p>APS required: {{ uni1_data.aps }} | Deadline: {{ uni1_data.deadline }}</p>
+                <a href="{{ uni1_data.prospectus_link }}" target="_blank">View Prospectus</a>
+            </div>
+                <div class="uni-card">
+                    <h3>{{ uni2_data.name }}</h3>
+                    <p>APS required: {{ uni2_data.aps }} | Deadline: {{ uni2_data.deadline }}</p>
+                    <a href="{{ uni2_data.prospectus_link }}" target="_blank">View Prospectus</a>
+                </div>
+
+            {% if uni1_data.aps < uni2_data.aps %}
+                    <p><strong>{{ uni1_data.name }}</strong> has the lower APS requirement.</p>
+                {% elif uni2_data.aps < uni1_data.aps %}
+                    <p><strong>{{ uni2_data.name }}</strong> has the lower APS requirement.</p>
+                {% else %}
+                    <p>Both universities require the same APS.</p>
+            {% endif %}
+        {% endif %}
+
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
