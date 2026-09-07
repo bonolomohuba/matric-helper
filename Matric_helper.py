@@ -214,6 +214,10 @@ def get_points(percentage):
         return 1
 
 @app.route('/')
+def welcome():
+    return render_template('welcome.html')   
+
+@app.route('/home')
 def home():
     return render_template('index.html', universities=universities)
 
