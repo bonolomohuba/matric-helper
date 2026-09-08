@@ -222,7 +222,7 @@ materials = [
     {'subject': 'Free Textbooks (Maths, Science & more)', 'source': 'Siyavula', 'link': 'https://www.siyavula.com/read'},
 ]
 
-#here we wanna calculate the aps score of each student
+#we wanna create the level(grades from 1 to 7) using the percentage
 def get_points(percentage):
     if percentage >= 80:
         return 7
@@ -258,7 +258,7 @@ def search():
                 break
     return render_template('search.html', result=result)
 
-#ROUTE FOR APS CALCULATOR
+#ROUTE FOR APS CALCULATOR and we calculate the student aps
 @app.route('/aps-calculator', methods=['GET', 'POST'])
 def aps_calculator():
     total_aps = None

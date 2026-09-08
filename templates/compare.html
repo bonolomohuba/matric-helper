@@ -43,17 +43,18 @@
         {% endif %}
 
         {% if uni1_data and uni2_data %}
-            <div class="uni-card">
-                <h3>{{ uni1_data.name }}</h3>
-                <p>APS required: {{ uni1_data.aps }} | Deadline: {{ uni1_data.deadline }}</p>
-                <a href="{{ uni1_data.prospectus_link }}" target="_blank">View Prospectus</a>
-            </div>
-                <div class="uni-card">
-                    <h3>{{ uni2_data.name }}</h3>
-                    <p>APS required: {{ uni2_data.aps }} | Deadline: {{ uni2_data.deadline }}</p>
-                    <p><strong>Application Fee:</strong> {{ uni.application_fee }}</p>
-                    <a href="{{ uni2_data.prospectus_link }}" target="_blank">View Prospectus</a>
-                </div>
+    <div class="uni-card">
+        <h3>{{ uni1_data.name }}</h3>
+        <p>APS required: {{ uni1_data.aps }} | Deadline: {{ uni1_data.deadline }}</p>
+        <p><strong>Application Fee:</strong> {{ uni1_data.application_fee }}</p>
+        <a href="{{ uni1_data.prospectus_link }}" target="_blank">View Prospectus</a>
+    </div>
+    <div class="uni-card">
+        <h3>{{ uni2_data.name }}</h3>
+        <p>APS required: {{ uni2_data.aps }} | Deadline: {{ uni2_data.deadline }}</p>
+        <p><strong>Application Fee:</strong> {{ uni2_data.application_fee }}</p>
+        <a href="{{ uni2_data.prospectus_link }}" target="_blank">View Prospectus</a>
+    </div>
 
             {% if uni1_data.aps < uni2_data.aps %}
                     <p><strong>{{ uni1_data.name }}</strong> has the lower APS requirement.</p>
