@@ -9,6 +9,7 @@ universities = [
         'aliases': ['university of the witwatersrand'],
         'aps': 34,
         'deadline': '30 September 2026',
+        'application_fee': 'R100 (SA students)',
         'prospectus_link': 'https://www.wits.ac.za/study-at-wits/undergraduate/'
     },
     {
@@ -16,6 +17,7 @@ universities = [
         'aliases': ['university of pretoria', 'tuks'],
         'aps': 30,
         'deadline': '30 June 2026',
+        'application_fee': 'R300 (waived if household income under R150 000)',
         'prospectus_link': 'https://www.up.ac.za/apply'
     },
     {
@@ -23,6 +25,7 @@ universities = [
         'aliases': ['university of johannesburg'],
         'aps': 24,
         'deadline': '31 October 2026',
+        'application_fee': 'Free (online) / R200 (manually)',
         'prospectus_link': 'https://www.uj.ac.za/study-at-uj/apply/'
     },
     {
@@ -30,6 +33,7 @@ universities = [
         'aliases': ['university of cape town'],
         'aps': 34,
         'deadline': '31 July 2026',
+        'application_fee': 'R100 (SA/SADC)',
         'prospectus_link': 'https://www.uct.ac.za/apply'
     },
     {
@@ -37,6 +41,7 @@ universities = [
         'aliases': ['tshwane university of technology'],
         'aps': 26,
         'deadline': '30 September 2026',
+        'application_fee': 'R240',
         'prospectus_link': 'https://www.tut.ac.za/prospective-students'
     },
     {
@@ -44,6 +49,7 @@ universities = [
         'aliases': ['sefako makgatho health sciences university'],
         'aps': 28,
         'deadline': '31 July 2026',
+        'application_fee': 'R300',
         'prospectus_link': 'https://www.smu.ac.za/'
     },
     {
@@ -51,6 +57,7 @@ universities = [
         'aliases': ['stellenbosch university', 'su', 'maties'],
         'aps': 32,
         'deadline': '31 July 2026',
+        'application_fee': 'R100 (waived for Quintile 1-4 schools)',
         'prospectus_link': 'https://www.sun.ac.za/english/maties-choice/apply'
     },
     {
@@ -58,6 +65,7 @@ universities = [
         'aliases': ['rhodes university', 'ru'],
         'aps': 28,
         'deadline': '30 September 2026',
+        'application_fee': 'R100',
         'prospectus_link': 'https://www.ru.ac.za/prospectivestudents/'
     },
     {
@@ -65,6 +73,7 @@ universities = [
         'aliases': ['north-west university', 'north west university'],
         'aps': 24,
         'deadline': '30 August 2026',
+        'application_fee': 'Free',
         'prospectus_link': 'https://www.nwu.ac.za/how-to-apply'
     },
     {
@@ -72,6 +81,7 @@ universities = [
         'aliases': ['university of the free state', 'free state'],
         'aps': 24,
         'deadline': '30 September 2026',
+        'application_fee': 'Free',
         'prospectus_link': 'https://www.ufs.ac.za/apply'
     },
     {
@@ -79,13 +89,15 @@ universities = [
         'aliases': ['university of kwazulu-natal', 'kwazulu natal'],
         'aps': 26,
         'deadline': '30 September 2026',
-        'prospectus_link': 'https://www.ukzn.ac.za/apply/'
+        'application_fee': 'R250 (via CAO)',
+        'prospectus_link': 'https://applications.ukzn.ac.za/' 
     },
     {
         'name': 'UWC',
         'aliases': ['university of the western cape', 'western cape'],
         'aps': 23,
         'deadline': '30 September 2026',
+        'application_fee': 'Free',
         'prospectus_link': 'https://www.uwc.ac.za/study/applications'
     },
     {
@@ -93,6 +105,7 @@ universities = [
         'aliases': ['university of fort hare', 'ufh'],
         'aps': 22,
         'deadline': '31 October 2026',
+        'application_fee': 'Free (online) / R120 (manual)',
         'prospectus_link': 'https://www.ufh.ac.za/apply'
     },
     {
@@ -100,6 +113,7 @@ universities = [
         'aliases': ['university of venda'],
         'aps': 22,
         'deadline': '30 September 2026',
+        'application_fee': 'R100',
         'prospectus_link': 'https://www.univen.ac.za/'
     },
     {
@@ -107,6 +121,7 @@ universities = [
         'aliases': ['durban university of technology'],
         'aps': 20,
         'deadline': '30 September 2026',
+        'application_fee': 'R250 (via CAO)',
         'prospectus_link': 'https://www.dut.ac.za/apply/'
     },
     {
@@ -114,6 +129,7 @@ universities = [
         'aliases': ['cape peninsula university of technology'],
         'aps': 20,
         'deadline': '30 September 2026',
+        'application_fee': 'Free (online) / R100 (manual)',
         'prospectus_link': 'https://www.cput.ac.za/study/applications'
     },
     {
@@ -121,6 +137,7 @@ universities = [
         'aliases': ['central university of technology'],
         'aps': 20,
         'deadline': '30 September 2026',
+        'application_fee': 'Free',
         'prospectus_link': 'https://www.cut.ac.za/applications'
     },
     {
@@ -128,6 +145,7 @@ universities = [
         'aliases': ['vaal university of technology'],
         'aps': 20,
         'deadline': '30 September 2026',
+        'application_fee': 'R100',
         'prospectus_link': 'https://www.vut.ac.za/admissions/'
     },
     {
@@ -135,6 +153,7 @@ universities = [
         'aliases': ['mangosuthu university of technology'],
         'aps': 18,
         'deadline': '30 September 2026',
+        'application_fee': 'R250 (via CAO)',
         'prospectus_link': 'https://www.mut.ac.za/'
     },
     {
@@ -142,6 +161,7 @@ universities = [
         'aliases': ['university of south africa'],
         'aps': 18,
         'deadline': '1 January 2027',
+        'application_fee': 'R135 - R150',
         'prospectus_link': 'https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission'
     },
     {
@@ -149,6 +169,7 @@ universities = [
         'aliases': ['nelson mandela university', 'nelson mandela'],
         'aps': 24,
         'deadline': '30 September 2026',
+        'application_fee': 'Free',
         'prospectus_link': 'https://www.mandela.ac.za/Study-at-Mandela/Applications'
     },
     {
@@ -156,6 +177,7 @@ universities = [
         'aliases': ['university of zululand', 'zululand'],
         'aps': 20,
         'deadline': '31 October 2026',
+        'application_fee': 'R250 (via CAO)',
         'prospectus_link': 'https://www.unizulu.ac.za/'
     },
     {
@@ -163,6 +185,7 @@ universities = [
         'aliases': ['walter sisulu university'],
         'aps': 18,
         'deadline': '31 October 2026',
+        'application_fee': 'Free (online) / R100 (manual)',
         'prospectus_link': 'https://www.wsu.ac.za/'
     },
     {
@@ -170,6 +193,7 @@ universities = [
         'aliases': ['university of limpopo', 'limpopo'],
         'aps': 22,
         'deadline': '30 September 2026',
+        'application_fee': 'R200',
         'prospectus_link': 'https://www.ul.ac.za/'
     },
     {
@@ -177,6 +201,7 @@ universities = [
         'aliases': ['sol plaatje university'],
         'aps': 20,
         'deadline': '30 November 2026',
+        'application_fee': 'Free',
         'prospectus_link': 'https://www.spu.ac.za/'
     },
     {
@@ -184,6 +209,7 @@ universities = [
         'aliases': ['university of mpumalanga', 'mpumalanga'],
         'aps': 20,
         'deadline': '30 November 2026',
+        'application_fee': 'R200',
         'prospectus_link': 'https://www.ump.ac.za/'
     },
 ]

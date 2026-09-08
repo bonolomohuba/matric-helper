@@ -3,6 +3,8 @@
 <head>
     <title>Study Materials</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% include 'favicon_link.html' %}
+    
 </head>
 <body>
 
@@ -27,7 +29,7 @@
             </div>
         {% endfor %}
 
-        <a href="/">Back to Home</a>
+        <a href="/home">Back to Home</a>
     </div>
 </body>
 </html>

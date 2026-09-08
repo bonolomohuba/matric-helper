@@ -3,6 +3,8 @@
 <head>
     <title>Matric Helper</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% include 'favicon_link.html' %}
+    
 </head>
 <body>
     <nav class="navbar">
@@ -23,6 +25,7 @@
         <div class="uni-card">
             <h3>{{ uni.name }}</h3>
             <p>APS required: {{ uni.aps }} | Deadline: {{ uni.deadline }}</p>
+            <p><strong>Application Fee:</strong> {{ uni.application_fee }}</p>
             <a href="{{ uni.prospectus_link }}" target="_blank">View Prospectus / Apply</a><br>
             <a href="/add-favorite/{{ uni.name }}">☆ Add to Favorites</a>
         </div>

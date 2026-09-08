@@ -3,6 +3,7 @@
 <head>
     <title>APS Calculator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% include 'favicon_link.html' %}
 
 </head>
 <body>
@@ -46,6 +47,7 @@
                 <div class="uni-card">
                     <h4>{{ uni.name }}</h4>
                     <p>APS required: {{ uni.aps }} | Deadline: {{ uni.deadline }}</p>
+                    <p><strong>Application Fee:</strong> {{ uni.application_fee }}</p>
                     <a href="{{ uni.prospectus_link }}" target="_blank">View Prospectus / Apply</a>
                 </div>
             {% endfor %}
@@ -54,7 +56,7 @@
        {% endif %}
    {% endif %}
 
-    <a href="/">Back to Home</a>
+    <a href="/home">Back to Home</a>
 </div>    
 </body>
 </html>

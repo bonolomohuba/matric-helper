@@ -59,3 +59,14 @@ body {
 .navbar a:hover {
     text-decoration: underline;
 }
+
+/*Styling our background witht an image for the welcome site to look attractive*/
+.welcome-bg {
+    background-image: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url("../static/welcome-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

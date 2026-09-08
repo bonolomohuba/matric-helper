@@ -3,6 +3,7 @@
 <head>
     <title>Compare Universities</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% include 'favicon_link.html' %}
 </head>
 <body>
 
@@ -50,6 +51,7 @@
                 <div class="uni-card">
                     <h3>{{ uni2_data.name }}</h3>
                     <p>APS required: {{ uni2_data.aps }} | Deadline: {{ uni2_data.deadline }}</p>
+                    <p><strong>Application Fee:</strong> {{ uni.application_fee }}</p>
                     <a href="{{ uni2_data.prospectus_link }}" target="_blank">View Prospectus</a>
                 </div>
 
@@ -62,7 +64,7 @@
             {% endif %}
         {% endif %}
 
-        <a href="/">Back to Home</a>
+        <a href="/home">Back to Home</a>
     </div>
 </body>
 </html>

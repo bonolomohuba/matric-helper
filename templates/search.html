@@ -3,6 +3,8 @@
 <head>
     <title>Search Universities</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% include 'favicon_link.html' %}
+    
 </head>
 <body>
 
@@ -31,13 +33,14 @@
     <div class="uni-card">
         <h3>{{ result.name }}</h3>
         <p>APS required: {{ result.aps }} | Deadline: {{ result.deadline }}</p>
+        <p><strong>Application Fee:</strong> {{ uni.application_fee }}</p>
         <a href="{{ result.prospectus_link }}" target="_blank">View Prospectus / Apply</a>
     </div>
     {% elif result is none and request.method == 'POST' %}
     <p>No university found with that name.</p>
     {% endif %}
     
-    <a href="/">Back to Home</a>
+    <a href="/home">Back to Home</a>
 </div>
 </body>
 </html>
