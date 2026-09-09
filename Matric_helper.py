@@ -222,22 +222,31 @@ materials = [
     {'subject': 'Free Textbooks (Maths, Science & more)', 'source': 'Siyavula', 'link': 'https://www.siyavula.com/read'},
 ]
 
-#we wanna create the level(grades from 1 to 7) using the percentage
-def get_points(percentage):
-    if percentage >= 80:
-        return 7
-    elif percentage >= 70:
-        return 6
-    elif percentage >= 60:
-        return 5
-    elif percentage >= 50:
-        return 4
-    elif percentage >= 40:
-        return 3
-    elif percentage >= 30:
-        return 2
-    else:
-        return 1
+#we add a list of all the subjects to be used when calculation APS
+home_languages = ['English', 'Afrikaans', 'isiZulu', 'isiXhosa', 'Sepedi', 'Sesotho',
+    'Setswana', 'Siswati', 'Tshivenda', 'Xitsonga', 'isiNdebele']
+
+additional_languages = ['English', 'Afrikaans', 'isiZulu', 'isiXhosa', 'Sepedi', 'Sesotho',
+    'Setswana', 'Siswati', 'Tshivenda', 'Xitsonga', 'isiNdebele']
+
+elective_subjects = ['Physical Sciences', 'Life Sciences', 'Accounting', 'Business Studies',
+    'Economics', 'Geography', 'History', 'Computer Applications Technology (CAT)',
+    'Information Technology', 'Engineering Graphics and Design',
+    'Consumer Studies', 'Agricultural Sciences', 'Tourism',
+    'Dramatic Arts', 'Visual Arts', 'Music', 'Design']
+
+mark_ranges = [
+    ('80 - 100%', 7),
+    ('70 - 79%', 6),
+    ('60 - 69%', 5),
+    ('50 - 59%', 4),
+    ('40 - 49%', 3),
+    ('30 - 39%', 2),
+    ('0 - 29%', 1),
+]
+
+
+
 
 @app.route('/')
 def welcome():
@@ -263,31 +272,20 @@ def search():
 def aps_calculator():
     total_aps = None
     qualifying_universities = []
-    error = None
 
     if request.method == 'POST':
-        try:
-            subject1 = float(request.form['subject1'])
-            subject2 = float(request.form['subject2'])
-            subject3 = float(request.form['subject3'])
-            subject4 = float(request.form['subject4'])
-            subject5 = float(request.form['subject5'])
-            subject6 = float(request.form['subject6'])
+        total_aps = (int(request.form['subject1_mark']) + int(request.form['subject2_mark'])
+            + int(request.form['subject3_mark']) + int(request.form['subject4_mark'])
+            + int(request.form['subject5_mark']) + int(request.form['subject6_mark']))
 
-            if any(mark < 0 or mark > 100 for mark in [subject1, subject2, subject3, subject4, subject5, subject6]):
-                error = "Percentages must be between 0 and 100."
-            else:
-                total_aps = (get_points(subject1) + get_points(subject2) + get_points(subject3)
-                             + get_points(subject4) + get_points(subject5) + get_points(subject6))
+        for uni in universities:
+            if total_aps >= uni['aps']:
+                qualifying_universities.append(uni)
 
-                for uni in universities:
-                    if total_aps >= uni['aps']:
-                        qualifying_universities.append(uni)
-
-        except ValueError:
-            error = "Please enter valid numbers for all six subjects."
-
-    return render_template('aps_calculator.html', total_aps=total_aps, qualifying_universities=qualifying_universities, error=error)
+    return render_template('aps_calculator.html', total_aps=total_aps,
+        qualifying_universities=qualifying_universities,
+        home_languages=home_languages, additional_languages=additional_languages,
+        elective_subjects=elective_subjects, mark_ranges=mark_ranges)
 
 #ROUTE FOR STUDENT MATERIALS
 @app.route('/materials')

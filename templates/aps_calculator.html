@@ -4,10 +4,9 @@
     <title>APS Calculator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     {% include 'favicon_link.html' %}
-
 </head>
 <body>
-
+ 
     <nav class="navbar">
         <a href="/home">Home</a>
         <a href="/search">Search</a>
@@ -15,48 +14,118 @@
         <a href="/compare">Compare</a>
         <a href="/materials">Materials</a>
         <a href="/favorites">Favorites</a>
+        <a href="/advice">Advice</a>
         <a href="/apply-service">Apply For Me</a>
     </nav>
-
+ 
     <div class="container">
-
-    <h1>APS Calculator</h1>
-    {% include 'aps_disclaimer.html' %}
-    
-    <p>Enter your percentage for your best 6 subjects (excluding Life Orientation).</p>
-
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    <form method="POST">
-        <input type="text" name="subject1" placeholder="Subject 1 %"><br>
-        <input type="text" name="subject2" placeholder="Subject 2 %"><br>
-        <input type="text" name="subject3" placeholder="Subject 3 %"><br>
-        <input type="text" name="subject4" placeholder="Subject 4 %"><br>
-        <input type="text" name="subject5" placeholder="Subject 5 %"><br>
-        <input type="text" name="subject6" placeholder="Subject 6 %"><br>
-        <button type="submit">Calculate APS</button>
-    </form>
-
-    {% if total_aps is not none %}
-    <h2>Your APS Score: {{ total_aps }}</h2>
-
-    <h3>Universities you qualify for:</h3>
-        {% if qualifying_universities %}
-            {% for uni in qualifying_universities %}
-                <div class="uni-card">
-                    <h4>{{ uni.name }}</h4>
-                    <p>APS required: {{ uni.aps }} | Deadline: {{ uni.deadline }}</p>
-                    <p><strong>Application Fee:</strong> {{ uni.application_fee }}</p>
-                    <a href="{{ uni.prospectus_link }}" target="_blank">View Prospectus / Apply</a>
-                </div>
-            {% endfor %}
-       {% else %}
-            <p>No universities matched based on the minimum APS listed. Check specific course requirements directly.</p>
-       {% endif %}
-   {% endif %}
-
-    <a href="/home">Back to Home</a>
-</div>    
+        <h1>APS Calculator</h1>
+        {% include 'aps_disclaimer.html' %}
+ 
+        <p>Choose your subject and mark range for each of the 6 subjects that count towards your APS.
+        Life Orientation is compulsory but is not counted towards your APS, so it isn't included here.</p>
+ 
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+ 
+        <form method="POST">
+ 
+            <h3>Home Language</h3>
+            <select name="subject1_name">
+                {% for lang in home_languages %}
+                    <option value="{{ lang }}">{{ lang }}</option>
+                {% endfor %}
+            </select>
+            <select name="subject1_mark">
+                {% for label, points in mark_ranges %}
+                    <option value="{{ points }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+ 
+            <h3>First Additional Language</h3>
+            <select name="subject2_name">
+                {% for lang in additional_languages %}
+                    <option value="{{ lang }}">{{ lang }}</option>
+                {% endfor %}
+            </select>
+            <select name="subject2_mark">
+                {% for label, points in mark_ranges %}
+                    <option value="{{ points }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+ 
+            <h3>Mathematics or Mathematical Literacy</h3>
+            <select name="subject3_name">
+                <option value="Mathematics">Mathematics</option>
+                <option value="Mathematical Literacy">Mathematical Literacy</option>
+            </select>
+            <select name="subject3_mark">
+                {% for label, points in mark_ranges %}
+                    <option value="{{ points }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+ 
+            <h3>Elective Subject 1</h3>
+            <select name="subject4_name">
+                {% for subj in elective_subjects %}
+                    <option value="{{ subj }}">{{ subj }}</option>
+                {% endfor %}
+            </select>
+            <select name="subject4_mark">
+                {% for label, points in mark_ranges %}
+                    <option value="{{ points }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+ 
+            <h3>Elective Subject 2</h3>
+            <select name="subject5_name">
+                {% for subj in elective_subjects %}
+                    <option value="{{ subj }}">{{ subj }}</option>
+                {% endfor %}
+            </select>
+            <select name="subject5_mark">
+                {% for label, points in mark_ranges %}
+                    <option value="{{ points }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+ 
+            <h3>Elective Subject 3</h3>
+            <select name="subject6_name">
+                {% for subj in elective_subjects %}
+                    <option value="{{ subj }}">{{ subj }}</option>
+                {% endfor %}
+            </select>
+            <select name="subject6_mark">
+                {% for label, points in mark_ranges %}
+                    <option value="{{ points }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+ 
+            <br><br>
+            <button type="submit">Calculate APS</button>
+        </form>
+ 
+        {% if total_aps is not none %}
+            <h2>Your APS Score: {{ total_aps }}</h2>
+ 
+            <h3>Universities you qualify for:</h3>
+            {% if qualifying_universities %}
+                {% for uni in qualifying_universities %}
+                    <div class="uni-card">
+                        <h4>{{ uni.name }}</h4>
+                        <p>APS required: {{ uni.aps }} | Deadline: {{ uni.deadline }}</p>
+                        <p><strong>Application Fee:</strong> {{ uni.application_fee }}</p>
+                        <a href="{{ uni.prospectus_link }}" target="_blank">View Prospectus / Apply</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No universities matched based on the minimum APS listed. Check specific course requirements directly.</p>
+            {% endif %}
+        {% endif %}
+ 
+        <a href="/home">Back to Home</a>
+    </div>
 </body>
 </html>
+ 
