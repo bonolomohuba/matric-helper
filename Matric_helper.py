@@ -346,5 +346,10 @@ def favorites():
 def apply_service():
     return render_template('apply_service.html')
 
+#the route for the advice site
+@app.route('/advice')
+def advice():
+    return render_template('advice.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
